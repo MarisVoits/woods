@@ -21,15 +21,13 @@ namespace HutInTheWoods.Mvc.Controllers
 
         public IActionResult Index()
         {
-            var model = new List<News>();
+            var model = new HomeIndexViewModel();
             var rep = new DataRepository();
-            model = rep.GetLatestNews().ToList();
-            return View(model);
-        }
 
-        public IActionResult Privacy()
-        {
-            return View();
+            model.News = rep.GetLatestNews(3);
+            model.Huts = rep.GetHutsForFirstPage();
+
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

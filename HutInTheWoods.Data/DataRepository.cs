@@ -17,7 +17,7 @@ namespace HutInTheWoods.Data
             var connection = new MySqlConnection(ConnectionString);
 
             var command = connection.CreateCommand();
-            command.CommandText = "select * from huts_in_the_woods.huts where huts_show_on_first_page = 1";
+            command.CommandText = "select * from huts_in_the_woods.huts where huts_show_on_first_page = 1 LIMIT 3";
             command.CommandType = CommandType.Text;
 
             try

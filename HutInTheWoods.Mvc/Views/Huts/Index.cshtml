@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model HutsIndexViewModel
+
+<div class="row" style="margin-top:30px">
+    @foreach (var hut in Model.Huts)
+    {
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img src="@hut.BigPicturePath" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@hut.Name</h5>
+                    <p class="card-text">@hut.ShortDescription</p>
+                    <a asp-action="Details" asp-controller="Huts" asp-route-id="@hut.Id" class="btn btn-primary">More ...</a>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
